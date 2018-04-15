@@ -2,82 +2,82 @@ package com.orange.shop;
 
 public class Line {
 
-	private String field1;
-	private String field2;
-	private String field3;
-	private String field4;
-	private String field5;
-	private String field6;
+    private double longitude;
+    private double latitude;
+    private String shopDescription;
+    private int sunusng;
+    private int ipom;
+    private int weiwei;
 
-	public Line() {
-		super();
-	}
+    public Line() {
+        super();
+    }
 
-	public Line(String field1, String field2, String field3, String field4, String field5, String field6) {
-		super();
-		this.field1 = field1;
-		this.field2 = field2;
-		this.field3 = field3;
-		this.field4 = field4;
-		this.field5 = field5;
-		this.field6 = field6;
-	}
+    public Line(double longitude, double latitude, String shopDescription, int sunusng, int ipom, int weiwei) {
+        super();
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.shopDescription = shopDescription;
+        this.sunusng = sunusng;
+        this.ipom = ipom;
+        this.weiwei = weiwei;
+    }
 
-	public Line(String... fields) {
-		this.field1 = fields[0];
-		this.field2 = fields[1];
-		this.field3 = fields[2];
-		this.field4 = fields[3];
-		this.field5 = fields[4];
-		this.field6 = fields[5];
-	}
+    public Line(String... fields) {
+        this.longitude = Double.parseDouble(fields[0]);
+        this.latitude = Double.parseDouble(fields[1]);
+        this.shopDescription = fields[2];
+        this.sunusng = Integer.parseInt(fields[3]);
+        this.ipom = Integer.parseInt(fields[4]);
+        this.weiwei = Integer.parseInt(fields[5]);
+    }
 
-	public String getField1() {
-		return field1;
-	}
+    public double getLongitude() {
+        return longitude;
+    }
 
-	public void setField1(String field1) {
-		this.field1 = field1;
-	}
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 
-	public String getField2() {
-		return field2;
-	}
+    public double getLatitude() {
+        return latitude;
+    }
 
-	public void setField2(String field2) {
-		this.field2 = field2;
-	}
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
 
-	public String getField3() {
-		return field3;
-	}
+    public String getShopDescription() {
+        return shopDescription;
+    }
 
-	public void setField3(String field3) {
-		this.field3 = field3;
-	}
+    public void setShopDescription(String shopDescription) {
+        this.shopDescription = shopDescription;
+    }
 
-	public String getField4() {
-		return field4;
-	}
+    public int getSunusng() {
+        return sunusng;
+    }
 
-	public void setField4(String field4) {
-		this.field4 = field4;
-	}
+    public void setSunusng(int sunusng) {
+        this.sunusng = sunusng;
+    }
 
-	public String getField5() {
-		return field5;
-	}
+    public int getIpom() {
+        return ipom;
+    }
 
-	public void setField5(String field5) {
-		this.field5 = field5;
-	}
+    public void setIpom(int ipom) {
+        this.ipom = ipom;
+    }
 
-	public String getField6() {
-		return field6;
-	}
+    public int getWeiwei() {
+        return weiwei;
+    }
 
-	public void setField6(String field6) {
-		this.field6 = field6;
-	}
+    public void setWeiwei(int weiwei) {
+        this.weiwei = weiwei;
+    }
 
 }
