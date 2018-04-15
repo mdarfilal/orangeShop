@@ -3,11 +3,11 @@ package com.orange.shop;
 /**
  * Recherche de boutiques Orange.
  * 
- * Le point d'entrée doit implémenter cette interface.
+ * Le point d'entrÃ©e doit implÃ©menter cette interface.
  * 
  * 
  */
 public interface OrangeShopFinder {
 
-	String findOrangeShopWithMobileAvailable(double longitude, double latitude, String nameMobile);
+	String findOrangeShopWithMobileAvailable(double longitude, double latitude, String mobileName);
 }
