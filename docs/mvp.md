@@ -21,3 +21,9 @@ Afin qu'il soit plus lisible
 En tant qu'utilisateur
 Je veux accèder à l'interface graphique
 Afin d'avoir la boutique la plus proche
+
+## TS-IC-DC
+
+En tant que développeur
+Je veux industrialiser le déploiement de l'application
+Afin de minimiser les gestes d'exploitation
