@@ -17,13 +17,10 @@ public class FileShopReader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FileShopReader.class);
 
-    private String nameFile;
+    private String nameFile = "orange_shop.csv";
 
     public void setNameFile(String nameFile) {
-        this.nameFile = "orange_shop.csv";
-        if (nameFile != null) {
-            this.nameFile = nameFile;
-        }
+        this.nameFile = nameFile;
     }
 
     public List<Line> setAllLine() {
