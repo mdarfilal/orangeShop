@@ -8,6 +8,7 @@ public class Line {
     private int sunusng;
     private int ipom;
     private int weiwei;
+    private double distance;
 
     public Line() {
         super();
@@ -80,4 +81,11 @@ public class Line {
         this.weiwei = weiwei;
     }
 
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
 }
