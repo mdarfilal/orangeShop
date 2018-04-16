@@ -42,6 +42,6 @@ public class FileShopReaderImplTest {
     public void shouldThrownAnExceptionWhenFileDoesntExist() {
         FileShopReaderImpl reader = new FileShopReaderImpl();
         reader.setNameFile("toto.csv");
-        assertThrows(RuntimeException.class, () -> reader.setAllLine());
+        assertThrows(IndexOutOfBoundsException.class, () -> reader.setAllLine());
     }
 }

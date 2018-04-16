@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -31,7 +29,6 @@ public class FileShopReaderImpl implements FileShopReader {
     public List<Line> setAllLine() {
         URI uri = getFile();
         List<String> allLines = readShopFile(uri);
-
         removeHeaderLine(allLines);
 
         return createListShops(allLines);
@@ -50,14 +47,7 @@ public class FileShopReaderImpl implements FileShopReader {
     }
 
     private URI getFile() {
-        URI uri = null;
-        URL url = ClassLoader.getSystemResource(nameFile);
-        try {
-            uri = url.toURI();
-        } catch (URISyntaxException | NullPointerException e) {
-            throw new RuntimeException("Erreur lors de la récupération du fichier", e);
-        }
-        return uri;
+        return Paths.get("src/main/resources/" + nameFile).toUri();
     }
 
     private void removeHeaderLine(List<String> allLines) {
