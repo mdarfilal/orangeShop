@@ -51,3 +51,14 @@ mobile : Required - Format=XXX (String)
 - JUnit 5
 
 - Mockito 2.18.0
+
+
+# Arborescence
+
+- docs : Contient le MVP (Minimum Viable Product)
+
+- src : Le code source
+
+- resources : Le fichier des données
+
+- README.md : Description du projet
