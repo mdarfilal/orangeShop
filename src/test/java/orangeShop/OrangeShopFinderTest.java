@@ -2,12 +2,12 @@ package orangeShop;
 
 import com.orange.shop.FileShopReader;
 import com.orange.shop.Line;
-import com.orange.shop.OrangeShopFinder;
 import com.orange.shop.OrangeShopFinderImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import utils.MockitoExtension;
 
@@ -16,11 +16,14 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
+@ExtendWith({MockitoExtension.class})
 public class OrangeShopFinderTest {
 
     @Mock
     FileShopReader fileShopReader;
+
+    @InjectMocks
+    OrangeShopFinderImpl shop;
 
     double userLon;
     double userLat;
@@ -40,8 +43,6 @@ public class OrangeShopFinderTest {
         Line shopWithoutSunusng = new Line(1.1, 1.1, "Second Shop", 0, 1, 1);
         when(fileShopReader.setAllLine()).thenReturn(Arrays.asList(shopWithSunusng, shopWithoutSunusng));
 
-        OrangeShopFinder shop = new OrangeShopFinderImpl(fileShopReader);
-
         String shopWithMobileAvailable = shop.findOrangeShopWithMobileAvailable(userLon, userLat, userMobile);
 
         assertEquals(shopWithSunusng.getShopDescription(), shopWithMobileAvailable);
@@ -53,8 +54,6 @@ public class OrangeShopFinderTest {
 
         Line shopWithoutSunusng = new Line(1.1, 1.1, "Second Shop", 0, 1, 1);
         when(fileShopReader.setAllLine()).thenReturn(Arrays.asList(shopWithoutSunusng));
-
-        OrangeShopFinder shop = new OrangeShopFinderImpl(fileShopReader);
 
         String shopWithMobileAvailable = shop.findOrangeShopWithMobileAvailable(userLon, userLat, userMobile);
 
@@ -70,8 +69,6 @@ public class OrangeShopFinderTest {
 
         when(fileShopReader.setAllLine()).thenReturn(Arrays.asList(shopWithoutIpom, shopWithIpom));
 
-        OrangeShopFinder shop = new OrangeShopFinderImpl(fileShopReader);
-
         String shopWithMobileAvailable = shop.findOrangeShopWithMobileAvailable(userLon, userLat, userMobile);
 
         assertEquals(shopWithIpom.getShopDescription(), shopWithMobileAvailable);
@@ -86,8 +83,6 @@ public class OrangeShopFinderTest {
 
         when(fileShopReader.setAllLine()).thenReturn(Arrays.asList(shopWithWeiwei, shopWithoutWeiwei));
 
-        OrangeShopFinder shop = new OrangeShopFinderImpl(fileShopReader);
-
         String shopWithMobileAvailable = shop.findOrangeShopWithMobileAvailable(userLon, userLat, userMobile);
 
         assertEquals(shopWithWeiwei.getShopDescription(), shopWithMobileAvailable);
@@ -100,7 +95,6 @@ public class OrangeShopFinderTest {
         Line shopWithWeiwei = new Line(1.1, 1.1, "First Shop", 0, 0, 1);
 
         when(fileShopReader.setAllLine()).thenReturn(Arrays.asList(shopWithWeiwei));
-        OrangeShopFinder shop = new OrangeShopFinderImpl(fileShopReader);
 
         String nearestShop = shop.findOrangeShopWithMobileAvailable(userLon, userLat, userMobile);
 
@@ -120,7 +114,6 @@ public class OrangeShopFinderTest {
 
         Line lesFlaneriesShop = new Line(-1.43024, 46.69141, "[Orange] 85 La Roche-sur-Yon (CC Les Flaneries)", 0, 0, 1);
 
-        OrangeShopFinder shop = new OrangeShopFinderImpl(fileShopReader);
         double distanceBetweenPoints = shop.findDistanceBetweenPoints(userLon, userLat, lesFlaneriesShop.getLongitude(), lesFlaneriesShop.getLatitude());
 
         assertEquals(distanceBetweenUserAndShop, distanceBetweenPoints, 200);
@@ -136,8 +129,6 @@ public class OrangeShopFinderTest {
         Line lesFlaneriesShop = new Line(-1.43024, 46.69141, "[Orange] 85 La Roche-sur-Yon (CC Les Flaneries)", 0, 0, 1);
 
         when(fileShopReader.setAllLine()).thenReturn(Arrays.asList(velizyShop, lesFlaneriesShop));
-
-        OrangeShopFinder shop = new OrangeShopFinderImpl(fileShopReader);
 
         String nearestShopWithMobileAvailable = shop.findOrangeShopWithMobileAvailable(userLon, userLat, userMobile);
 

@@ -1,15 +1,16 @@
 package com.orange.shop;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class OrangeShopFinderImpl implements OrangeShopFinder {
 
+    @Autowired
     FileShopReader fileShopReader;
-
-    public OrangeShopFinderImpl(FileShopReader fileShopReader) {
-        this.fileShopReader = fileShopReader;
-    }
 
     @Override
     public String findOrangeShopWithMobileAvailable(double longitude, double latitude, String mobileName) {
@@ -21,8 +22,10 @@ public class OrangeShopFinderImpl implements OrangeShopFinder {
                         return line.getSunusng() > 0;
                     } else if (mobileName.equals("ipom")) {
                         return line.getIpom() > 0;
-                    } else {
+                    } else if (mobileName.equals("weiwei")){
                         return line.getWeiwei() > 0;
+                    } else {
+                        return false;
                     }
                 }).collect(Collectors.toList());
 

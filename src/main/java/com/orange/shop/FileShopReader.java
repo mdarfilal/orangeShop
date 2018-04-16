@@ -2,6 +2,7 @@ package com.orange.shop;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URI;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class FileShopReader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FileShopReader.class);
