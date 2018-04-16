@@ -1,5 +1,8 @@
-package com.orange.shop;
+package com.orange.shop.service.impl;
 
+import com.orange.shop.model.Line;
+import com.orange.shop.service.FileShopReader;
+import com.orange.shop.service.OrangeShopFinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +13,11 @@ import java.util.stream.Collectors;
 public class OrangeShopFinderImpl implements OrangeShopFinder {
 
     @Autowired
-    FileShopReader fileShopReader;
+    FileShopReader fileShopReaderImpl;
 
     @Override
     public String findOrangeShopWithMobileAvailable(double longitude, double latitude, String mobileName) {
-        List<Line> allLines = fileShopReader.setAllLine();
+        List<Line> allLines = fileShopReaderImpl.setAllLine();
 
         List<Line> availableShop = allLines.stream()
                 .filter(line -> {

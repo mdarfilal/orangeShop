@@ -1,19 +1,19 @@
 package orangeShop;
 
 
-import com.orange.shop.FileShopReader;
-import com.orange.shop.Line;
+import com.orange.shop.service.impl.FileShopReaderImpl;
+import com.orange.shop.model.Line;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FileShopReaderTest {
+public class FileShopReaderImplTest {
 
     @Test
     public void shouldReturnAllLinesWhenFileExists() {
-        FileShopReader reader = new FileShopReader();
+        FileShopReaderImpl reader = new FileShopReaderImpl();
         reader.setNameFile("orange_shop.csv");
         final int allFileShopLines = 226;
 
@@ -24,7 +24,7 @@ public class FileShopReaderTest {
 
     @Test
     public void shouldSkipHeaderLinesWhenFileExists() {
-        FileShopReader reader = new FileShopReader();
+        FileShopReaderImpl reader = new FileShopReaderImpl();
         reader.setNameFile("orange_shop.csv");
         List<Line> allLines = reader.setAllLine();
 
@@ -40,7 +40,7 @@ public class FileShopReaderTest {
 
     @Test
     public void shouldThrownAnExceptionWhenFileDoesntExist() {
-        FileShopReader reader = new FileShopReader();
+        FileShopReaderImpl reader = new FileShopReaderImpl();
         reader.setNameFile("toto.csv");
         assertThrows(RuntimeException.class, () -> reader.setAllLine());
     }

@@ -1,5 +1,7 @@
-package com.orange.shop;
+package com.orange.shop.service.impl;
 
+import com.orange.shop.model.Line;
+import com.orange.shop.service.FileShopReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -15,9 +17,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class FileShopReader {
+public class FileShopReaderImpl implements FileShopReader {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(FileShopReader.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FileShopReaderImpl.class);
 
     private String nameFile = "orange_shop.csv";
 
@@ -25,6 +27,7 @@ public class FileShopReader {
         this.nameFile = nameFile;
     }
 
+    @Override
     public List<Line> setAllLine() {
         URI uri = getFile();
         List<String> allLines = readShopFile(uri);
@@ -32,7 +35,6 @@ public class FileShopReader {
         removeHeaderLine(allLines);
 
         return createListShops(allLines);
-
     }
 
     private List<String> readShopFile(URI uri) {

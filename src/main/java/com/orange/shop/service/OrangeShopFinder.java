@@ -1,4 +1,4 @@
-package com.orange.shop;
+package com.orange.shop.service;
 
 /**
  * Recherche de boutiques Orange.

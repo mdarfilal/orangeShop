@@ -1,5 +1,6 @@
-package com.orange.shop;
+package com.orange.shop.controller;
 
+import com.orange.shop.service.OrangeShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
