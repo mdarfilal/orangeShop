@@ -37,6 +37,17 @@ curl 'http://localhost:8080/api/v1/shop/?longitude=48.78192&latitude=2.22137&mob
 GET /api/v1/shop/ : Renvoie la boutique le plus proche de l'utilisateur considérant son type de mobile
 
 Params :
+
 longitude : Required - Format=X.X (double)
+
 latitude : Required - Format=X.X (double)
+
 mobile : Required - Format=XXX (String)
+
+# Techno
+
+- Spring Boot 2.0.1
+
+- JUnit 5
+
+- Mockito 2.18.0
